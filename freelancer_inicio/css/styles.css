@@ -1,0 +1,327 @@
+:root {
+    /*Paleta de colores y tamaños*/
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #ffc107;
+    /*rgb(255, 193, 7);*/
+    --secundario: #0097a7;
+    --gris: #757575;
+    --grisClaro: #dfe9f3;
+
+    --fuente-principal: 3rem;
+}
+
+html {
+    /*Estas dos lineas el html y body, permiten como resetear el ducumento a un tamaño, para hacer funcionar mejor
+    rems*/
+    font-size: 62.5%;
+    box-sizing: border-box;
+    /*Lo que hace esta linea es conjunto con *, *:before, *:after , es como delimitar
+    el tamaño maximo que puede tener un elemento, incluso si usa before o after*/
+
+    scroll-snap-type: y mandatory; /*Esto es para poder añadirle como un scroll, para poder llevar a las personas
+    a zonas determinas de tu proyecto dando muy poco scroll*/ 
+}
+
+/* Scroll snap*/
+.servicio, .navegacion-principal, .formulario {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+*, *:before, *:after {
+    /**/
+    box-sizing: inherit;
+}
+
+body {
+    /*Lo que esta en el body, se aplica a todo el documento*/
+    font-size: 16px;
+    /*Esto hace que 1rem= 10px, aproximadamente, al final, esto y la linea anterior se hace, para 
+    que en equipos pequeños o grandes con gran cantidad de pixeles, y los equipos mas normales, el contenido
+    se vea muy parecido en cuestión de tamaño, esto permite evitar escribir mucho el css, para que se vea bien
+    en ciertos equipos, es mas como una medida mas estandar*/
+    font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%);
+}
+
+.sombra {
+    box-shadow: 0px 5px 15px 0px rgba(84, 84, 84, 0.46);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+h1 {
+    font-size: var(--fuente-principal);
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+.titulo span {
+    font-size: 2rem;
+}
+
+.contenedor {
+    max-width: 80rem;
+    /*margin-top: 0rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0rem;
+    margin: 0  auto 0 auto;*/
+    margin: 0 auto;
+    /*Esto es lo mismo de arriba*/
+}
+
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    text-decoration: none;
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+    /*Pone el texto en mayusculas*/
+    font-weight: bold;
+    /*Es para el grueso del texto*/
+    border-radius: .5rem;
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+
+.boton:hover {
+    /*Esto es para poner la mano que pone sobre los botones*/
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .boton {
+        width: auto;
+    }
+}
+
+/* Utilidades */
+.w-sm-100 {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .w-sm-100 {
+        width: auto;
+    }
+}
+
+.flex {
+    display: flex;
+}
+
+.alinear-derecha {
+    justify-content: flex-end;
+}
+
+/* Navegación principal */
+.nav-bg {
+    /*Esto es una utilidad*/
+    background-color: var(--secundario);
+}
+
+.navegacion-principal {
+    display: flex;
+    /*Al habilitar flex, nos permite 
+    habilitar flexbox en este elemento, lo cual
+    nos permite desbloquear propiedades*/
+    flex-direction: column;
+    /*Lo acomoda en forma de columna*/
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .navegacion-principal {
+        flex-direction: row;
+        /*Lo acomoda en forma de fila, como esta por defecto*/
+        justify-content: space-between;
+        /*Nos permite distribuir el
+    contenido de forma horizontal*/
+    }
+}
+
+.navegacion-principal a {
+    display: block;
+    padding: 1rem;
+    color: var(--blanco);
+    font-size: 2.5rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navegacion-principal a:hover {
+    background-color: #ffc107;
+    color: var(--oscuro);
+}
+
+.hero {
+    background-image: url(../imagenes/hero.jpg);
+    /*el ".." es para salir*, sale de la carpeta actual */
+    background-repeat: no-repeat;
+    /* Es para que no repita la imagen*/
+    background-size: cover;
+    /*Es para que tome todo el tamaño*/
+    height: 450px;
+    position: relative;
+    /*Se le pone posicion relativa al padre, para que el hijo pueda tene una posición absoluta, es para poder tener
+    una posicion fija para un objeto en el documento*/
+    margin-bottom: 2rem;
+}
+
+.contenido-hero {
+    position: absolute;
+    background-color: rgba(0, 0, 0, .7);
+    /*bottom: 0;
+    left: 0;
+    top: 0;
+    right: 0;*/
+    background-color: rgb(0, 0, 0, .7);
+    /*Esta es la forma anterior*/
+    background-color: rgb(0 0 0 /70%);
+    /* Esta es una muy nueva forma, no todos los navegadores la soportan*/
+    width: 100%;
+    height: 100%;
+
+    /*Estas 4 lineas centran cualquier contenido*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-hero h2,
+.contenido-hero p {
+    color: var(--blanco);
+}
+
+.contenido-hero .ubicacion {
+    display: flex;
+    align-items: flex-end;
+}
+
+/* Servicios */
+@media (min-width: 768px) {
+    .servicios {
+        display: grid;
+        /*grid-template-columns: 30rem 30rem;
+        grid-template-rows: 20rem 80rem;
+        grid: 20rem 80rem / 30rem 30rem; Esto es lo mismo de arriba, lo primero son las filas(rows) y sigen las columnas*/
+
+        /*grid-template-columns: 1fr 1fr 1fr; 1fr = 33.3% en esta caso que son 3*/
+        grid-template-columns: repeat(3, 1fr);
+        /* Esto es lo mismo de la fila de*/
+        column-gap: 3rem;
+    }
+}
+
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio h3 {
+    color: var(--secundario);
+    font-weight: normal;
+}
+
+.servicio p {
+    line-height: 2;
+    /*Este es el interlineado*/
+    text-align: center;
+}
+
+.servicio .iconos {
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* Contacto*/
+.formulario {
+    background-color: var(--gris);
+    width: min(60rem, 100%);
+    /* Utiliza el valor mas pequeño*/
+    margin: 0 auto;
+    /*Esto lo centra de forma horizontal*/
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+
+@media (min-width: 768px) {
+    .contenedor-campos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;
+    }
+
+    .campo:nth-child(3),
+    .campo:nth-child(4) {
+        /*:nth-child(3), es como una matriz que empieza con 1, escoje el tercer hijo para recolocarlo*/
+        grid-column: 1 / 3;
+        /* Lo coloca de la fila 1 al 3*/
+        /* grid-row: 3 / 4;  lo coloca de la fila 3 al 4 */
+    }
+}
+
+.campo {
+    margin-bottom: 1rem;
+}
+
+.campo label {
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+
+.campo textarea {
+    height: 15rem;
+}
+
+.input-text {
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+/*Footer */
+.footer {
+    text-align: center;
+}
